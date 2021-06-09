@@ -5,7 +5,7 @@
 }
 
 :root {
-    --bg-color: #ffdfc4;
+    --bg-color: rgb(255, 248, 238);
     --text-color: black;
     --text-color-accent: rgb(214, 69, 2);
     font-family: "Roboto", sans-serif;
@@ -67,36 +67,14 @@ h4 {
 .subtitle::after,
 h4::after {
     content: "";
-    height: 0.07em;
+    /* width: width of the column + 2rem padding on the container */
+    width: calc(100% + 2rem);
+    /* height in px instead of rem / em to avoid subpixel sizes */
+    height: 2px;
     background-color: var(--text-color-accent);
     position: absolute;
     bottom: 0;
     left: -2rem;
-}
-
-.title::after {
-    /* width: length of the title + 2rem padding on the container */
-    width: calc(14.3ch + 2rem);
-}
-
-.subtitle::after {
-    /* width: length of the title + 2rem padding on the container */
-    width: calc(23.3ch + 2rem);
-}
-
-.jobs--title::after {
-    /* width: length of the title + 2rem padding on the container */
-    width: calc(15ch + 2rem);
-}
-
-.studies--title::after {
-    /* width: length of the title + 2rem padding on the container */
-    width: calc(7.6ch + 2rem);
-}
-
-.school--title::after {
-    /* width: length of the title + 2rem padding on the container */
-    width: calc(14.5ch + 2rem);
 }
 
 .intro--img {
@@ -156,6 +134,13 @@ h4::after {
     h3 {
         font-size: 1.5rem;
     }
+
+    .title::after,
+    .subtitle::after,
+    h4::after {
+        /* height in px instead of rem / em to avoid subpixel sizes */
+        height: 3px;
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -172,8 +157,6 @@ h4::after {
 
     .col + .col .studies--title::after,
     .col + .col .school--title::after {
-        /* width: width of the column + 2rem padding on the container */
-        width: calc(100% + 2rem);
         left: 0;
     }
 }
